@@ -1,0 +1,72 @@
+Q14). What are function in s and how do you declare them.
+// 1. Function Declaration (Named Function)
+// A function with a name that can be reused
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+// Calling the function
+greet("Kanak"); // Output: Hello, Kanak!
+
+/* 
+How it works:
+- The function is declared using "function" keyword.
+- It takes a parameter (name) and prints a greeting.
+- It can be called multiple times with different arguments.
+*/
+
+
+// 2. Function Expression (Anonymous Function)
+// A function stored in a variable
+const add = function(a, b) {
+    return a + b;
+};
+
+console.log(add(5, 11)); // Output: 16
+
+/* 
+How it works:
+- The function has no name and is assigned to a variable.
+- It can be used just like a normal function.
+*/
+
+
+// 3. Arrow Function (ES6)
+// A shorter way to write functions
+const multiply = (x, y) => x * y;
+
+console.log(multiply(4, 5)); // Output: 20
+
+/* 
+How it works:
+- Uses "=>" syntax (arrow).
+- Removes the need for "function" keyword.
+- If there's only one statement, "return" is implicit.
+*/
+
+
+// 4. Immediately Invoked Function Expression (IIFE)
+// A function that runs immediately after it's defined
+(function() {
+    console.log("This function runs immediately!");
+})();
+
+/* 
+How it works:
+- Wrapped in parentheses to make it an expression.
+- Executes immediately without needing to be called.
+*/
+
+
+// 5. Function with Default Parameters
+function greetUser(name = "Guest") {
+    console.log("Hello, " + name);
+}
+
+greetUser(); // Output: Hello, Guest
+greetUser("Bob"); // Output: Hello, Bob
+
+/* 
+How it works:
+- If no argument is provided, it defaults to "Guest".
+*/
