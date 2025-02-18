@@ -2,18 +2,22 @@
     margin: 0px;
     padding: 0px;
 }
+
 body{
     background-color: beige;
 }
+
 h1{
     text-align: center;
     margin-top: 30px;
     font-size: 70px;
 }
+
 .traffic_lgt_cont, .buttons{
     display: flex;
     justify-content: center;
 }
+
 .traffic_lgt{
     width: 200px;
     height: 550px;
@@ -24,6 +28,7 @@ h1{
     flex-wrap: wrap;
     align-items: center;
 }
+
 .lgt{
     width: 150px;
     height: 150px;
@@ -32,24 +37,31 @@ h1{
     border-radius: 50%;
     background-color: grey;
 }
+
 #red.shadow{
     box-shadow: 0 0 30px red;
 }
+
 #yellow.shadow{
     box-shadow: 0 0 30px yellow;
 }
+
 #green.shadow{
     box-shadow: 0 0 30px green;
 }
+
 #red.active{
     background-color: red;
 }
+
 #yellow.active{
     background-color: yellow;
 }
+
 #green.active{
     background-color: green;
 }
+
 button{
     margin: 30px;
     padding: 10px 20px;
@@ -58,56 +70,12 @@ button{
     color: black;
     background-color: white;
 }
+
 button:hover{
     background-color: black;
     color: white;
 }
+
 .new{
     background-color: grey;
 }
-/* ﻿body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 600px;
-    background-color: #222;
-}
-
-.traffic-light {
-    width: 100px;
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.light {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    border-radius: 50%;
-    background: gray;
-    transition: background 0.5s;
-}
-
-.red.active {
-    background: red;
-}
-
-.yellow.active {
-    background: yellow;
-}
-
-.green.active {
-    background: green;
-}
-
-button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-} */

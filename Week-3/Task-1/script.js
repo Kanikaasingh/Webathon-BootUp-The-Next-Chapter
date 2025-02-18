@@ -6,15 +6,18 @@ let autoInterval;
 let timings=[5000, 2000, 4000];
 let btn=document.querySelector("#next");
 
-function reset(){
+function reset()
+{
     i=0;
     light.forEach(light => light.classList.remove("active")); 
     light.forEach(light => light.classList.remove("shadow"));
 }
 
-re.onclick=()=>{
+re.onclick=()=>
+{
     reset();
 }
+
 function changelgt()
 {
     light.forEach(light => light.classList.remove("shadow"));
@@ -34,18 +37,18 @@ btn.onclick=()=>
     nextLgt();
 }
 
-
-document.getElementById("auto").addEventListener("click", () => {
-if (automode) 
+document.getElementById("auto").addEventListener("click", () => 
 {
-    clearInterval(autoInterval); 
-    document.getElementById("#auto").innerText = "Auto Mode";
-}
-else
-{
-    changelgt(); 
-    autoInterval = setInterval(nextLgt, timings[i]);
-    document.getElementById("#auto").innerText = "Stop Auto Mode"; 
-}
-    automode = !automode; 
+    if (automode)
+        {
+            clearInterval(autoInterval); 
+            document.getElementById("auto").innerText = "Auto Mode";
+        }
+    else 
+    {
+        changelgt(); 
+        autoInterval = setInterval(nextLgt, timings[i]);
+        document.getElementById("auto").innerText = "Stop Auto Mode"; 
+    }
+     automode = !automode; 
 });
