@@ -1,68 +1,51 @@
-let btn=document.querySelector("button");
-let color=document.querySelectorAll(".lgt");
-let r=document.querySelector("#red");
-let y=document.querySelector("#yellow");
-let g=document.querySelector("#green");
+let light=document.querySelectorAll(".lgt");
+let i=0;
+let re=document.querySelector("#refresh");
+let automode=false;
+let autoInterval;
+let timings=[5000, 2000, 4000];
+let btn=document.querySelector("#next");
+
 function reset(){
-    r.style.backgroundColor="grey";
-    r.style.boxShadow="0 0 0";
-    y.style.backgroundColor="grey";
-    y.style.boxShadow="0 0 0";
-    g.style.backgroundColor="grey";
-    g.style.boxShadow="0 0 0";
+    i=0;
+    light.forEach(light => light.classList.remove("active")); 
+    light.forEach(light => light.classList.remove("shadow"));
 }
-let c=0;
-for(i=0;i<3;i++)
-    {
-        btn.onclick=()=>
-            {
-            c++;
-            if(c==1)
-                {
-                    r.style.backgroundColor="red";
-                    r.style.boxShadow="0 0 30px red";
-                }
-            if(c==2)
-                {
-                    y.style.backgroundColor="yellow";
-                    y.style.boxShadow="0 0 30px yellow";
-                }   
-            if(c==3)
-                {
-                    g.style.backgroundColor="green";
-                    g.style.boxShadow="0 0 30px green";
-                }
-            }
+
+re.onclick=()=>{
+    reset();
 }
-document.querySelector("button").ondblclick=reset;
-// const click=()=>{
-//     r.style.backgroundColor="red";
-//     r.style.boxShadow="0 0 30px red";
-// };
+function changelgt()
+{
+    light.forEach(light => light.classList.remove("shadow"));
+    light[i].classList.add("shadow"); 
+    light.forEach(light => light.classList.remove("active")); 
+    light[i].classList.add("active"); 
+}
 
-// btn.addEventListener("click", click);
+function nextLgt()
+{
+    changelgt();
+    i++;
+}
 
-// btn.addEventListener("click",()=>{
-//     g.style.backgroundColor="green";
-//     g.style.boxShadow="0 0 30px green";
-// });
+btn.onclick=()=>
+{
+    nextLgt();
+}
 
-// btn.removeEventListener("dblclick", click);
-// btn.onclick=()=>{
-//     if(r.style.backgroundColor="grey")
-//     {
-//         r.style.backgroundColor="red";
-//         r.style.boxShadow="0 0 30px red";
-//     }
-    
-//     if(y.style.backgroundColor="grey")
-//     {
-//         y.style.backgroundColor="yellow";
-//         y.style.boxShadow="0 0 30px yellow";
-//     }
-//     if(g.style.backgroundColor="grey")
-//     {
-//         g.style.backgroundColor="green";
-//         g.style.boxShadow="0 0 30px green";
-//     }
-// }
+
+document.getElementById("auto").addEventListener("click", () => {
+if (automode) 
+{
+    clearInterval(autoInterval); 
+    document.getElementById("#auto").innerText = "Auto Mode";
+}
+else
+{
+    changelgt(); 
+    autoInterval = setInterval(nextLgt, timings[i]);
+    document.getElementById("#auto").innerText = "Stop Auto Mode"; 
+}
+    automode = !automode; 
+});
